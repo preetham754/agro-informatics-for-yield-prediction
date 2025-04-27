@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Agro Informatics - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #c2e59c, #64b3f4);
+      color: #fff;
+    }
+    .hero {
+      padding: 100px 0;
+      text-align: center;
+      animation: fadeIn 2s ease;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Align to the right */
+            gap: 20px;
+            width: 100%;
+        }
+      
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  
+   
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#" style="font-size:xx-large;">🌾 Agro Informatics</a>
+      <div class="container">
+        <h4 class="welcome"> Welcome {{ user.username }}!</h4>
+       <a href = "{% url 'logout' %}" class="btn btn-danger mt-3">Logout</a>
+      </div>
+      
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Smart Yield Predictor</h1>
+    <p>Empowering Farmers Through Data-Driven Agriculture</p>
+
+      {% if result %}
+      <h2 style="color: green;font-weight: bolder;">{{ result }}</h2>
+    {% endif %}
+    {% if error %}
+        <h2 style="color: red;font-size: small;">{{ error }}</h2>
+    {% endif %}
+    <!--<a href="login.html" class="btn btn-light btn-lg shadow-sm">Get Started</a>-->
+  </section>
+    <section id="form">
+        
+    <div class="predict-form mx-auto" style="max-width: 600px;">
+          <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label class="form-label">Crop Type</label>
+              <select class="form-control" name="crop" required>
+                  <option value="" disabled selected>Select a crop type</option>
+                  <option value="Arecanut">Arecanut</option>
+<option value="Arhar/Tur">Arhar/Tur</option>
+<option value="Bajra">Bajra</option>
+<option value="Banana">Banana</option>
+<option value="Barley">Barley</option>
+<option value="Black pepper">Black pepper</option>
+<option value="Cardamom">Cardamom</option>
+<option value="Cashewnut">Cashewnut</option>
+<option value="Castor seed">Castor seed</option>
+<option value="Coconut">Coconut</option>
+<option value="Coriander">Coriander</option>
+<option value="Cotton(lint)">Cotton(lint)</option>
+<option value="Cowpea(Lobia)">Cowpea(Lobia)</option>
+<option value="Dry chillies">Dry chillies</option>
+<option value="Garlic">Garlic</option>
+<option value="Ginger">Ginger</option>
+<option value="Gram">Gram</option>
+<option value="Groundnut">Groundnut</option>
+<option value="Guar seed">Guar seed</option>
+<option value="Horse-gram">Horse-gram</option>
+<option value="Jowar">Jowar</option>
+<option value="Jute">Jute</option>
+<option value="Khesari">Khesari</option>
+<option value="Linseed">Linseed</option>
+<option value="Maize">Maize</option>
+<option value="Masoor">Masoor</option>
+<option value="Mesta">Mesta</option>
+<option value="Moong(Green Gram)">Moong(Green Gram)</option>
+<option value="Moth">Moth</option>
+<option value="Niger seed">Niger seed</option>
+<option value="Oilseeds total">Oilseeds total</option>
+<option value="Onion">Onion</option>
+<option value="Other Cereals">Other Cereals</option>
+<option value="Other Kharif pulses">Other Kharif pulses</option>
+<option value="Other Rabi pulses">Other Rabi pulses</option>
+<option value="Other Summer Pulses">Other Summer Pulses</option>
+<option value="Peas & beans (Pulses)">Peas & beans (Pulses)</option>
+<option value="Potato">Potato</option>
+<option value="Ragi">Ragi</option>
+<option value="Rapeseed &Mustard">Rapeseed &Mustard</option>
+<option value="Rice">Rice</option>
+<option value="Safflower">Safflower</option>
+<option value="Sannhamp">Sannhamp</option>
+<option value="Sesamum">Sesamum</option>
+<option value="Small millets">Small millets</option>
+<option value="Soyabean">Soyabean</option>
+<option value="Sugarcane">Sugarcane</option>
+<option value="Sunflower">Sunflower</option>
+<option value="Sweet potato">Sweet potato</option>
+<option value="Tapioca">Tapioca</option>
+<option value="Tobacco">Tobacco</option>
+<option value="Turmeric">Turmeric</option>
+<option value="Urad">Urad</option>
+<option value="Wheat">Wheat</option>
+<option value="other oilseeds">other oilseeds</option>
+
+
+              </select>
+          </div>
+          
+            <div class="mb-3">
+              <label class="form-label">Select State</label>
+              <select class="form-control" name="state" required>
+                  <option value="" disabled selected>Select a state</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Uttarakhand">Uttarakhand</option>
+                  <option value="West Bengal">West Bengal</option>
+              </select>
+          </div>
+          
+            <div class="mb-3">
+              <label class="form-label">Rainfall (mm)</label>
+              <input type="number" class="form-control" name="annual_rainfall" required placeholder="300,400,500,...">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Fertilizer (kg/hectare)</label>
+              <input type="number" class="form-control" name="fertilizer" placeholder="150,200,.." required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Pesticide (kg/hectare)</label>
+              <input type="text" class="form-control" name="pesticide" placeholder="50,100,.." required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Season</label>
+              <select class="form-control" name="season" required>
+                  <option value="" disabled selected>Select a season</option>
+                  <option value="Kharif">Kharif</option>
+                  <option value="Rabi">Rabi</option>
+                  <option value="Whole Year">Whole year</option>
+                  <option value="Winter">Winter</option>
+                  <option value="Summer">Summer</option>
+                  <option value="Autumn">Autumn</option>
+              </select>
+          </div>
+          
+            <div class="mb-3">
+              <label class="form-label">Area (in hectares)</label>
+              <input type="number" class="form-control" name="area" placeholder="10,20,30,...">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Production (in kgs)</label>
+              <input type="number" class="form-control" name="production" required placeholder="2000,3000,...">
+            </div>
+            <button type="submit" class="btn btn-success w-100 mt-3">Predict Yield</button>
+          </form>
+        </div>
+        
+  </section>
+ <!--
+  <p>
+  <h6>Conversions:</h6>
+  1 hectare = 2.5 acres<br>
+  1 ton = 1000 kgs
+ </p>
+ -->
+</body><br>
+<footer style="background-color: rgb(65, 141, 65);text-align: center;padding: 5px;">
+&copy; 2025
+</footer>
+</html>
