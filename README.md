@@ -61,9 +61,6 @@ http://127.0.0.1:8000/
 ---
 ![Demo Image](./login.png)
 
-<video width="640" controls>
-  <source src="./sample.mp4" type="video/mp4">
-</video>
 
 
 **Author:** Preetham Reddy Korem  
