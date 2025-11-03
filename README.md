@@ -59,9 +59,10 @@ http://127.0.0.1:8000/
   ```
 
 ---
+![Demo Image](./demo.png)
+
 <video width="640" controls>
-  <source src="path/to/sample.mp4" type="video/mp4">
-  Your browser does not support the video tag.
+  <source src="./sample.mp4" type="video/mp4">
 </video>
 
 
