@@ -1,3 +1,9 @@
-python3 train.py
-python3 test.py
-python3 manage.py runserver
+# Django Project Setup and Execution Guide
+
+## 🛠️ Installation
+
+Make sure you have **Python 3** and **pip** installed on your system.
+
+### Step 1: Install Django
+```bash
+pip install django
