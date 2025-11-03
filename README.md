@@ -59,6 +59,11 @@ http://127.0.0.1:8000/
   ```
 
 ---
+<video width="640" controls>
+  <source src="path/to/sample.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 
 **Author:** Preetham Reddy Korem  
 **Framework:** Django  
