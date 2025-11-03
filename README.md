@@ -60,7 +60,8 @@ http://127.0.0.1:8000/
 
 ---
 ![Demo Image](./login.png)
-
+![Demo Image](./home.png)
+![Demo Image](./output.png)
 
 
 **Author:** Preetham Reddy Korem  
